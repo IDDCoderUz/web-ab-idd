@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    width: 100%;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    background-size:100% 100%;
+    background-image: url(https://play-lh.googleusercontent.com/Ay9in7letHG01yQS5Z0hk0wOjbIcj5JZBJEFMUFle6gAKDf2Vs1xo2lFkUHLu6GKU3g=w526-h296-rw);
+}
+.playground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 30px;
+}
+.playboardUser, .playboardComputer {
+    display: grid;
+    position: relative;
+    width: 330px;
+    height: 330px;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    border-radius: 15px;
+    padding: 8px;
+    background: teal;
+}
+.playboardComputer {
+    border: 2px solid red;
+}
+.playboardUser {
+    border: 2px solid blue;
+}
+.board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+.board p {
+    font-size: 20px;
+    color: var(--clr);
+    font-weight: 800;
+    background: rgba(255,255,255,.5);
+}
+.cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid silver;
+}
+.cell i {
+    color: blue;
+    font-size: 24px;
+}
+.playboardComputer .cell {
+    background: blue;
+}
+.playboardUser .cell {
+    background: azure;
+}
+
+.cell button {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: tan;
+    cursor: pointer;
+}
+.cell img {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 95%;
+    height: 95%;
+    position: absolute;
+}
+.boomed {
+    animation: boom 1.5s linear forwards;
+    z-index: 50;
+}
+.plch {
+    animation: plch 1.5s linear forwards;
+    z-index: 50;
+}
+@keyframes boom {
+    0% {
+        opacity: 1;
+    }
+    45% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 0 0 30px 20px yellow,
+                    0 0 50px 30px yellow,
+                    0 0 60px 40px yellow,
+                inset 0 0 30px 10px red;
+    }
+    55% {
+        box-shadow: none;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+@keyframes plch {
+    0% {
+        opacity: 1;
+    }
+    45% {
+        border-radius: 0%;
+        box-shadow: none;
+    }
+    50% {
+        border-radius: 50%;
+        box-shadow: 0 0 15px 5px navy;
+    }
+    55% {
+        border-radius: 0%;
+        box-shadow: none;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+h1 {
+    text-align: center;
+    padding: 15px;
+    font-size: 38px;
+    color: gold;
+}
+.setting {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    gap: 20px;
+}
+
+#change,#start,#repeat,#remember {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+#change {
+    color: gold;
+    border: 1px solid gold;
+    background: teal;
+}
+#start {
+    background: teal;
+    color: red;
+    border: 1px solid red;
+}
+#repeat {
+    background: teal;
+    color: purple;
+    border: 1px solid purple;
+}
+#remember {
+    background: teal;
+    color: greenyellow;
+    border: 1px solid greenyellow;
+}
+@media (min-width:661px){
+    .container {
+        background-repeat: no-repeat;
+        height: 130vh;
+    }
+    .playground {
+        flex-direction: row;
+    }
+}
+@media (max-width:660px){
+    .container {
+        background-repeat: repeat-y;
+        height: 120vh;
+    }
+    .playground {
+        flex-direction: column;
+    }
+}
+
+
+.advertice {
+    width: 330px;
+    height: 400px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.73);
+}
+.advertice h1 {
+    position: relative;
+    font-size: 24px;
+    color: red;
+}
+.advertice p {
+    position: relative;
+    font-size: 18px;
+    color: grey;
+}
+.advertice i {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    color: aqua;
+}
